@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>ЗАДАНИЕ 1</title>
+   <style>
+      .red {
+         color: red;
+      }
+   </style>
+</head>
+<body>
+
+   <p id="text_1">
+      Marry years resources age supported shyness cousin.
+      Late sweetness fully beauty. Travelling feeling with opinions added fine many may an her however breakfast vexed folly intention lovers allowance. Interest denote forfeited smallness ten much sex period often fail elinor was mutual. Margaret shutters produced feet. Parties preference his thing ashamed six green very enquire moonlight blind.
+      Only fond questions those confined expression quitting assurance terminated fail daughter diminution dining affixed described wife produced. Leave suspicion get sportsman above affronting afraid. Small ourselves attacks justice. Resolved cordially. Frankness was hoped performed frankness great certainty middletons far mile deal could weeks smallness.
+      Resolution just for. Securing learning cause goodness written secure greater power except. Consulted than but vanity sister certainty conveying matters exercise exposed little several seems engaged disposing screened. Just sitting sitting demesne offer shyness unaffected roof seen become body. Object fine bed sweetness entered face unreserved anxious plate advice unaffected regard.
+      ingtewdd
+   </p>
+
+   <p id="text_2"></p>
+
+   <a href="https://docs.google.com/spreadsheets/d/1VIk_ChecVJrVpUmU4wi5DqZxd2L1z5qZUP4bcGXcyPc/edit#gid=0">ЗАДАНИЕ 4 ТАБЛИЦА</a>
+
+
+
+
+   <script type="text/javascript">
+
+      // Задание 1
+      // Есть массив натуральных чисел. Нужно в нем отсортировать четные числа по возрастанию, а
+      // нечетные по убыванию. Расположение чисел чет/нечет должно остаться, как в исходном.
+      // Было: 1 2 7 5 6 8 4
+      // Стало: 7 2 5 1 4 6 8
+
+      let arr = [1, 2, 7, 5 , 6 , 8, 4];
+      let even = [];
+      let even_key = [];
+      let not_even = [];
+      let arr_finish = [];
+      arr.forEach(function(item, i) {
+         if (item % 2 === 0){
+            even[i] = item;
+            even_key[i] = 'even';
+         }else{
+            not_even[i] =item;
+            even_key[i] = 'not_even';
+         }
+      });
+      even.sort(function (a, b) {return a - b;});
+      not_even.sort(function (a, b) {return b - a;});
+
+      even_key.forEach(function (item, i) {
+         if (item === 'even') arr_finish[i] = even.shift();
+         else arr_finish[i] = not_even.shift();
+      });
+
+      console.log(arr_finish); // [7, 2, 5, 1, 4, 6, 8]
+
+      // Задание 2
+      // Есть html-страница, на ней абзац текста на английском языке. Нужно скопировать этот текст в
+      // новый абзац, слова начинающиеся с “r”, без учета регистра, выделить красным и переставить
+      // буквы в обратном порядке.
+      let text_1 = document.getElementById("text_1").innerText.split(' ');
+
+      text_1.forEach(function (word, i) {
+         if (word[0] === 'r' || word[0] === 'R'){
+            let a = 0
+            let word_2 = [];
+            for (let i = word.length; i >= 0; i--) {
+               if (word[i] === '.'){
+                  word_2[word.length] = word[i]; continue;
+               }
+               word_2[a] = word[i]; a++;
+            }
+            text_1[i] = "<span class='red'>"+word_2.join('')+"</span>";
+         }
+      });
+
+      let text_2 = document.getElementById('text_2');
+      text_2.innerHTML = text_1.join(' ');
+
+
+      // для гугл таблицы
+      function address(text) {
+
+         function in_array(value, array) {
+            for(let i=0; i<array.length; i++){
+               if(value === array[i]) return true;
+            }
+            return false;
+         }
+
+         let street = {
+               "N" : "North",
+               "S" : "South",
+               "E" : "East",
+               "W" : "West",
+               "St/Str" : "Street",
+               "Ave/Av" : "Avenue",
+               "Rd" : "Road",
+               "Dr" : "Drive",
+               "Blvd" : "Boulevard",
+               "Sq" : "Square",
+               "Ln" : "Lane",
+               "Pl" : "Place",
+               "Pk" : "Pike",
+               "Crt/Ct" : "Court",
+               "Lp" : "Loop",
+               "Cir/Cr" : "Circle",
+               "Hwy" : "Highway",
+               "Is" : "Island",
+               "Br" : "Bridge",
+               "Mnt" : "Mountain",
+               "Cy/Cyn" : "Canyon"
+         }
+
+      let states = {
+                 "AL": "Alabama",
+                 "AK": "Alaska",
+                 "AS": "American Samoa",
+                 "AZ": "Arizona",
+                 "AR": "Arkansas",
+                 "CA": "California",
+                 "CO": "Colorado",
+                 "CT": "Connecticut",
+                 "DE": "Delaware",
+                 "DC": "District Of Columbia",
+                 "FM": "Federated States Of Micronesia",
+                 "FL": "Florida",
+                 "GA": "Georgia",
+                 "GU": "Guam",
+                 "HI": "Hawaii",
+                 "ID": "Idaho",
+                 "IL": "Illinois",
+                 "IN": "Indiana",
+                 "IA": "Iowa",
+                 "KS": "Kansas",
+                 "KY": "Kentucky",
+                 "LA": "Louisiana",
+                 "ME": "Maine",
+                 "MH": "Marshall Islands",
+                 "MD": "Maryland",
+                 "MA": "Massachusetts",
+                 "MI": "Michigan",
+                 "MN": "Minnesota",
+                 "MS": "Mississippi",
+                 "MO": "Missouri",
+                 "MT": "Montana",
+                 "NE": "Nebraska",
+                 "NV": "Nevada",
+                 "NH": "New Hampshire",
+                 "NJ": "New Jersey",
+                 "NM": "New Mexico",
+                 "NY": "New York",
+                 "NC": "North Carolina",
+                 "ND": "North Dakota",
+                 "MP": "Northern Mariana Islands",
+                 "OH": "Ohio",
+                 "OK": "Oklahoma",
+                 "OR": "Oregon",
+                 "PW": "Palau",
+                 "PA": "Pennsylvania",
+                 "PR": "Puerto Rico",
+                 "RI": "Rhode Island",
+                 "SC": "South Carolina",
+                 "SD": "South Dakota",
+                 "TN": "Tennessee",
+                 "TX": "Texas",
+                 "UT": "Utah",
+                 "VT": "Vermont",
+                 "VI": "Virgin Islands",
+                 "VA": "Virginia",
+                 "WA": "Washington",
+                 "WV": "West Virginia",
+                 "WI": "Wisconsin",
+                 "WY": "Wyoming"
+         }
+
+         let prefix = ['san', "north", "south", "east", "west", 'fort', 'el', 'las', 'colorado', 'long', 'new', 'santa', 'corpus', 'saint', 'st', 'chula', 'jersey', 'baton', 'des', 'moreno', 'huntington', 'salt', 'grand', 'port', 'little', 'cape', 'fort', 'souix' ]
+
+         // Было:18615 Rogers Place SanAntonio Tx . 78258
+         // 477 south clinton st 2ndfl east orange, nj 07018
+         // 3113 40th ave Meridian,MS 39307
+         // 2479 Peachtree Rd NE Atlanta, Ga 30305
+
+         // Стало: 18615 Rogers Pl, San Antonio, TX 78258
+         // 477 S Clinton St #2ndfl, East Orange, NJ 07018
+         // 3113 40th Ave, Meridian, MS 39307
+         // 2479 Peachtree Rd NE, Atlanta, GA 30305
+
+         let format = [];
+         let i = 0;
+         let check = false;
+
+         text = text.replace(/[.,]/g, '');
+         text = text.replace(/([a-z])([A-Z])/g, '$1 $2');
+         text = text.split(' ');
+         text = text.filter(element => element !== '')
+         let count = text.length;
+         text.forEach(function(address , key){
+            if (address === '' ) return;
+
+            if (key < 3)
+            for (let key in street) {
+               if (street[key].toLowerCase() === address.toLowerCase()) address = key;
+            }
+
+            if (key === count - 4){
+               if (in_array(address.toLowerCase(), prefix)){
+                  address = ", "+ address[0].toUpperCase() + address.substring(1)
+                  check = true;
+               }
+            }
+
+            if (key === count - 3 && check === false) address = ", "+ address[0].toUpperCase() + address.substring(1);
+
+            if (key === count - 2)
+            for (let key in states) {
+               if (key.toUpperCase() === address.toUpperCase()) address = ", " + key;
+            }
+
+
+
+            format[i] = address[0].toUpperCase() + address.substring(1);
+            i++;
+         });
+         return format.join(' ').replace(/(\d)\s+([,!?:.])\s*(\d)/g, "$1$2$3").replace(/\s*([,!?:.])\s+/g, "$1 ");
+
+
+      }
+
+      console.log(address("2479 Peachtree Rd NE Atlanta, Ga 30305"));
+
+
+
+   </script>
+</body>
+
+
+
+</html>
